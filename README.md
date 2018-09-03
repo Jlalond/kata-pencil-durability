@@ -1,11 +1,29 @@
 #Test and Build instructions
 In order to run the tests associated with this solution use the follow command:
-'dotnet test src/PencilDurabilityKata.Tests'
+'dotnet test src/PencilDurabilityKata/PencilDurabilityKata.Tests'
+
+This will build and run the tests.
+
+**Language** 
+C# Specifically .Net core 2.1
+
+** Testing Framework ** 
+Xunit
 
 
+## Design Philisophy
+I want to highlight a few things, I didn't do null checks, and before I'm thrown under a bus, I'd like to discuss why.
 
+The exercise in general revolves around the behavior of a writer, the pencil and the eraser being tools provided by a greedy company.
+I believe our Writer is our orchestrator, and a writer cannot be a writer without say a pencil and an eraser (in the context of this story).
+Thus, I didn't do null checks within paper, because if I treated a writer like the orchestrator of these pieces, I personally think its easier to do null checks/validation at an upper layer
+As well, I didn't do much defensive programming and do checks in the constructors, you can pass a negative pencil durability, but a pencil won't work in that case and must be sharpened.
 
-
+### Now a personal note
+This really was my first time doing TDD, and I did jump the gun on some occasions. I feel somewhat rough in the process, something I know I can grow in.
+It is a strange feeling knowing people are going to parse through my git commit history to look for my TDD, and I definitely feel like a noob. Especially considering I felt the need to write more tests retroactively, something to avoid in TDD
+In the name of openness I might have made a commit where eraser wrote characters and then tested for that functionality, but I fixed it very shortly after and hope you all get the same 'doh' laugh that I did.
+I enjoyed this exercise and find it very refreshing compared to implement strange string interpolation algorithm.
 
 
 

@@ -103,5 +103,15 @@ namespace PencilDurabilityKata.Tests
             paper.Edit("bocaj");
             Assert.Equal("Jacob boc@@ol", paper.ReadAll());
         }
+
+        [Fact]
+        public void EditWithNoPreviousErasesDoesNothing()
+        {
+            var pencil = new Pencil(100);
+            var paper = new Paper();
+            paper.Write(pencil, "Jacob is cool");
+            paper.Edit("bocaj");
+            Assert.Equal("Jacob is cool", paper.ReadAll());
+        }
     }
 }
