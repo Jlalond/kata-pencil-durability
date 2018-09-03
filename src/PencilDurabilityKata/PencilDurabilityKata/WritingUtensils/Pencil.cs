@@ -1,6 +1,8 @@
-﻿namespace PencilDurabilityKata.WritingUtensils
+﻿using PencilDurabilityKata.WritingUtensils.Interfaces;
+
+namespace PencilDurabilityKata.WritingUtensils
 {
-    public class Pencil
+    public class Pencil : IWritingUtensil
     {
         public int DurabilityRating { get; private set; }
         private int _pencilLength;
@@ -29,7 +31,7 @@
             }
         }
 
-        public char WriteCharacterIfSharp(char characterToWrite)
+        public char WriteCharacterIfCapable(char characterToWrite)
         {
             if (IsWhiteSpaceOrNewLine(characterToWrite))
             {

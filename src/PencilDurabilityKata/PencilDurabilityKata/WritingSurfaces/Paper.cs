@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using PencilDurabilityKata.WritingUtensils;
+using PencilDurabilityKata.WritingUtensils.Interfaces;
 
 namespace PencilDurabilityKata.WritingSurfaces
 {
@@ -17,12 +18,12 @@ namespace PencilDurabilityKata.WritingSurfaces
             _lastErasedIndex = -1;
         }
 
-        public void Write(Pencil pencil, string message)
+        public void Write(IWritingUtensil pencil, string message)
         {
             var characters = message.ToCharArray();
             foreach (var character in characters)
             {
-                _characters.Append(pencil.WriteCharacterIfSharp(character));
+                _characters.Append(pencil.WriteCharacterIfCapable(character));
             }
         }
 
