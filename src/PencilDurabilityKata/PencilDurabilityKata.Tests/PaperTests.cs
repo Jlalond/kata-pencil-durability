@@ -12,5 +12,24 @@ namespace PencilDurabilityKata.Tests
             paper.Write("Jacob is cool");
             Assert.Equal("Jacob is cool", paper.ReadAll());
         }
+
+        [Fact]
+        public void WriteToPaperMultipleTimesAndReadBackJoinedString()
+        {
+            var paper = new Paper();
+            paper.Write("Jacob");
+            paper.Write(" is ");
+            paper.Write("cool");
+            Assert.Equal("Jacob is cool", paper.ReadAll());
+        }
+
+        [Fact]
+        public void WriteEmptyStringAndGetBackEmpty()
+        {
+            var paper = new Paper();
+            paper.Write(string.Empty);
+            Assert.Equal(string.Empty, paper.ReadAll()
+            );
+        }
     }
 }
