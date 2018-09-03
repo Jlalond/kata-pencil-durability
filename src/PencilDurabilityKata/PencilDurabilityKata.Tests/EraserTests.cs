@@ -7,7 +7,7 @@ namespace PencilDurabilityKata.Tests
     public class EraserTests
     {
         [Fact]
-        public void EraseReturnsAllWhiteSpace()
+        public void EraseReturnsAllCharacters()
         {
             var eraser = new Eraser(1000);
             var stringBuilder = new StringBuilder();
@@ -18,5 +18,6 @@ namespace PencilDurabilityKata.Tests
 
             Assert.Equal("JJJJJ", stringBuilder.ToString());
         }
+
     }
 }
