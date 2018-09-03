@@ -48,5 +48,20 @@ namespace PencilDurabilityKata.Tests
 
             Assert.Equal("J ", stringbuilder.ToString());
         }
+
+        [Fact]
+        public void MutlipleLettersCombineToTenPoints()
+        {
+            var pencil = new Pencil(10);
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append(pencil.WriteCharacterIfSharp('J'));
+            stringBuilder.Append(pencil.WriteCharacterIfSharp('J'));
+            stringBuilder.Append(pencil.WriteCharacterIfSharp('J'));
+            stringBuilder.Append(pencil.WriteCharacterIfSharp('J'));
+            stringBuilder.Append(pencil.WriteCharacterIfSharp('j'));
+            stringBuilder.Append(pencil.WriteCharacterIfSharp('j'));
+
+            Assert.Equal("JJJJjj", stringBuilder.ToString());
+        }
     }
 }
