@@ -16,7 +16,7 @@ namespace PencilDurabilityKata.Tests
                 stringBuilder.Append(eraser.Erase('J'));
             }
 
-            Assert.Equal("JJJJJ", stringBuilder.ToString());
+            Assert.Equal("     ", stringBuilder.ToString());
         }
 
         [Fact]
@@ -29,7 +29,7 @@ namespace PencilDurabilityKata.Tests
                 stringBuilder.Append(eraser.Erase('j'));
             }
 
-            Assert.Equal("     ", stringBuilder.ToString());
+            Assert.Equal("jjjjj", stringBuilder.ToString());
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace PencilDurabilityKata.Tests
             stringBuilder.Append(eraser.Erase('j'));
             stringBuilder.Append(eraser.Erase(' '));
 
-            Assert.Equal(" j ", stringBuilder.ToString());
+            Assert.Equal("   ", stringBuilder.ToString());
         }
     }
 }

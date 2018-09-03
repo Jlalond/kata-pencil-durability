@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using PencilDurabilityKata.WritingUtensils;
 
 namespace PencilDurabilityKata.WritingSurfaces
@@ -24,6 +25,20 @@ namespace PencilDurabilityKata.WritingSurfaces
         public string ReadAll()
         {
             return _characters.ToString();
+        }
+
+        public void Erase(Eraser eraser, string phraseToBeErased)
+        {
+            var charactersToString = _characters.ToString();
+            var indexOfPhrase = charactersToString.LastIndexOf(phraseToBeErased, StringComparison.CurrentCulture);
+            if (indexOfPhrase != -1)
+            {
+                var startIndex = indexOfPhrase + phraseToBeErased.Length - 1;
+                for (var i = 0; i < phraseToBeErased.Length; i++)
+                {
+                    _characters[startIndex - i] = eraser.Erase(_characters[startIndex - i]);
+                }
+            }
         }
     }
 }

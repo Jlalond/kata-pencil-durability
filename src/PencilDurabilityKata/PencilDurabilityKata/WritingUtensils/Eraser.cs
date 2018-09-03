@@ -20,10 +20,10 @@
             if (_durabilityRating > 0)
             {
                 _durabilityRating--;
-                return characterToErase;
+                return WhiteSpace;
             }
 
-            return WhiteSpace;
+            return characterToErase;
         }
     }
 }

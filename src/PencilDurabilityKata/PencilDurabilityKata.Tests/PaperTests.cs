@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.ComTypes;
 using PencilDurabilityKata.WritingSurfaces;
 using PencilDurabilityKata.WritingUtensils;
 using Xunit;
@@ -33,6 +34,17 @@ namespace PencilDurabilityKata.Tests
             var paper = new Paper();
             paper.Write(pencil, string.Empty);
             Assert.Equal(string.Empty, paper.ReadAll());
+        }
+
+        [Fact]
+        public void ErasePhraseSuccessfull()
+        {
+            var eraser = new Eraser(1000);
+            var pencil = new Pencil(100);
+            var paper = new Paper();
+            paper.Write(pencil, "Jacob");
+            paper.Erase(eraser, "Jacob");
+            Assert.Equal("     ", paper.ReadAll());
         }
     }
 }
