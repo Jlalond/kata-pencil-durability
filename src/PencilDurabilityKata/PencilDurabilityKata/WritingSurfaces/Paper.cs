@@ -41,7 +41,7 @@ namespace PencilDurabilityKata.WritingSurfaces
             for (var i = 0; i < phraseToBeErased.Length; i++)
             {
                 _characters[startIndex - i] = eraser.Erase(_characters[startIndex - i]);
-                if (_characters[startIndex + i] == ' ')
+                if (_characters[startIndex - i] == ' ')
                 {
                     _lastErasedIndex = startIndex - i;
                 }

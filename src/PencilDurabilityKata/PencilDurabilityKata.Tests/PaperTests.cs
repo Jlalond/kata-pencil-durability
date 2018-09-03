@@ -91,5 +91,6 @@ namespace PencilDurabilityKata.Tests
             paper.Edit("as");
             Assert.Equal("Jacob as cool", paper.ReadAll());
         }
+
     }
 }
