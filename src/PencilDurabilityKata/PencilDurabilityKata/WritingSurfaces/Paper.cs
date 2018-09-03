@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using PencilDurabilityKata.WritingUtensils;
 
 namespace PencilDurabilityKata.WritingSurfaces
 {
@@ -11,9 +12,13 @@ namespace PencilDurabilityKata.WritingSurfaces
             _characters = new StringBuilder();
         }
 
-        public void Write(string message)
+        public void Write(Pencil pencil, string message)
         {
-            _characters.Append(message);
+            var characters = message.ToCharArray();
+            foreach (var character in characters)
+            {
+                _characters.Append(pencil.WriteCharacterIfSharp(character));
+            }
         }
 
         public string ReadAll()

@@ -1,4 +1,5 @@
 using PencilDurabilityKata.WritingSurfaces;
+using PencilDurabilityKata.WritingUtensils;
 using Xunit;
 
 namespace PencilDurabilityKata.Tests
@@ -8,26 +9,29 @@ namespace PencilDurabilityKata.Tests
         [Fact]
         public void WriteToPaperAndReadBackExactString()
         {
+            var pencil = new Pencil(400);
             var paper = new Paper();
-            paper.Write("Jacob is cool");
+            paper.Write(pencil, "Jacob is cool");
             Assert.Equal("Jacob is cool", paper.ReadAll());
         }
 
         [Fact]
         public void WriteToPaperMultipleTimesAndReadBackJoinedString()
         {
+            var pencil = new Pencil(400);
             var paper = new Paper();
-            paper.Write("Jacob");
-            paper.Write(" is ");
-            paper.Write("cool");
+            paper.Write(pencil, "Jacob");
+            paper.Write(pencil, " is ");
+            paper.Write(pencil, "cool");
             Assert.Equal("Jacob is cool", paper.ReadAll());
         }
 
         [Fact]
         public void WriteEmptyStringAndGetBackEmpty()
         {
+            var pencil = new Pencil(400);
             var paper = new Paper();
-            paper.Write(string.Empty);
+            paper.Write(pencil, string.Empty);
             Assert.Equal(string.Empty, paper.ReadAll());
         }
     }
