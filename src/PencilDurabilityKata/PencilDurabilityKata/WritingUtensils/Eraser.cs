@@ -1,6 +1,8 @@
-﻿namespace PencilDurabilityKata.WritingUtensils
+﻿using PencilDurabilityKata.WritingUtensils.Interfaces;
+
+namespace PencilDurabilityKata.WritingUtensils
 {
-    public class Eraser
+    public class Eraser : IEraser
     {
         private int _durabilityRating;
         private const char WhiteSpace = ' ';

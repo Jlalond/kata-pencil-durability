@@ -32,7 +32,7 @@ namespace PencilDurabilityKata.WritingSurfaces
             return _characters.ToString();
         }
 
-        public void Erase(Eraser eraser, string phraseToBeErased)
+        public void Erase(IEraser eraser, string phraseToBeErased)
         {
             var charactersToString = _characters.ToString();
             var indexOfPhrase = charactersToString.LastIndexOf(phraseToBeErased, StringComparison.CurrentCulture);

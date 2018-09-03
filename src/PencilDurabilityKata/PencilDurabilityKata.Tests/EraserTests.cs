@@ -43,5 +43,6 @@ namespace PencilDurabilityKata.Tests
 
             Assert.Equal("   ", stringBuilder.ToString());
         }
+        
     }
 }

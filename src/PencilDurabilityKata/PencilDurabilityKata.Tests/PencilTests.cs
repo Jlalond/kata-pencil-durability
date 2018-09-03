@@ -11,7 +11,7 @@ namespace PencilDurabilityKata.Tests
         public void DullPencilReturnsWhiteSpace()
         {
             var pencil = new Pencil(0);
-            Assert.Equal(' ', pencil.WriteCharacterIfSharp('J'));
+            Assert.Equal(' ', pencil.WriteCharacterIfCapable('J'));
         }
 
         [Fact]
@@ -21,7 +21,7 @@ namespace PencilDurabilityKata.Tests
             var stringbuilder = new StringBuilder();
             for (var i = 0; i < 5; i++)
             {
-                stringbuilder.Append(pencil.WriteCharacterIfSharp('j'));
+                stringbuilder.Append(pencil.WriteCharacterIfCapable('j'));
             }
 
             Assert.Equal("     ", stringbuilder.ToString());
@@ -32,8 +32,8 @@ namespace PencilDurabilityKata.Tests
         {
             var pencil = new Pencil(1);
             var stringbuilder = new StringBuilder();
-            stringbuilder.Append(pencil.WriteCharacterIfSharp(' '));
-            stringbuilder.Append(pencil.WriteCharacterIfSharp('j'));
+            stringbuilder.Append(pencil.WriteCharacterIfCapable(' '));
+            stringbuilder.Append(pencil.WriteCharacterIfCapable('j'));
 
             Assert.Equal(" j", stringbuilder.ToString());
         }
@@ -43,8 +43,8 @@ namespace PencilDurabilityKata.Tests
         {
             var pencil = new Pencil(2);
             var stringbuilder = new StringBuilder();
-            stringbuilder.Append(pencil.WriteCharacterIfSharp('J'));
-            stringbuilder.Append(pencil.WriteCharacterIfSharp('j'));
+            stringbuilder.Append(pencil.WriteCharacterIfCapable('J'));
+            stringbuilder.Append(pencil.WriteCharacterIfCapable('j'));
 
             Assert.Equal("J ", stringbuilder.ToString());
         }
@@ -54,14 +54,24 @@ namespace PencilDurabilityKata.Tests
         {
             var pencil = new Pencil(10);
             var stringBuilder = new StringBuilder();
-            stringBuilder.Append(pencil.WriteCharacterIfSharp('J'));
-            stringBuilder.Append(pencil.WriteCharacterIfSharp('J'));
-            stringBuilder.Append(pencil.WriteCharacterIfSharp('J'));
-            stringBuilder.Append(pencil.WriteCharacterIfSharp('J'));
-            stringBuilder.Append(pencil.WriteCharacterIfSharp('j'));
-            stringBuilder.Append(pencil.WriteCharacterIfSharp('j'));
+            stringBuilder.Append(pencil.WriteCharacterIfCapable('J'));
+            stringBuilder.Append(pencil.WriteCharacterIfCapable('J'));
+            stringBuilder.Append(pencil.WriteCharacterIfCapable('J'));
+            stringBuilder.Append(pencil.WriteCharacterIfCapable('J'));
+            stringBuilder.Append(pencil.WriteCharacterIfCapable('j'));
+            stringBuilder.Append(pencil.WriteCharacterIfCapable('j'));
 
             Assert.Equal("JJJJjj", stringBuilder.ToString());
+        }
+
+        [Fact]
+        public void NewLineHasNoCost()
+        {
+            var pencil = new Pencil(1);
+            var stringbuilder = new StringBuilder();
+            stringbuilder.Append(pencil.WriteCharacterIfCapable('\n'));
+            stringbuilder.Append(pencil.WriteCharacterIfCapable('j'));
+            Assert.Equal("\nj", stringbuilder.ToString());
         }
     }
 }
