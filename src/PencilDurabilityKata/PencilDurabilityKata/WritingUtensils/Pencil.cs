@@ -1,17 +1,32 @@
-﻿using System;
-using System.Linq;
-
-namespace PencilDurabilityKata.WritingUtensils
+﻿namespace PencilDurabilityKata.WritingUtensils
 {
     public class Pencil
     {
-        private int _durabilityRating;
+        public int DurabilityRating { get; private set; }
+        private int _pencilLength;
+        private const int SharpeningDurabilityRating = 40000;
         private const char WhiteSpace = ' ';
         private const int UpperCaseCost = 2;
 
         public Pencil(int durabilityRating)
         {
-            _durabilityRating = durabilityRating;
+            DurabilityRating = durabilityRating;
+            _pencilLength = 10;
+        }
+
+        public Pencil(int durabilityRating, int pencilLength)
+        {
+            DurabilityRating = durabilityRating;
+            _pencilLength = pencilLength;
+        }
+
+        public void Sharpen()
+        {
+            if (_pencilLength > 0)
+            {
+                DurabilityRating = SharpeningDurabilityRating;
+                _pencilLength--;
+            }
         }
 
         public char WriteCharacterIfSharp(char characterToWrite)
@@ -21,15 +36,15 @@ namespace PencilDurabilityKata.WritingUtensils
                 return characterToWrite;
             }
 
-            if (IsUpperCase(characterToWrite) && _durabilityRating >= UpperCaseCost)
+            if (IsUpperCase(characterToWrite) && DurabilityRating >= UpperCaseCost)
             {
-                _durabilityRating -= UpperCaseCost;
+                DurabilityRating -= UpperCaseCost;
                 return characterToWrite;
             }
 
-            if (_durabilityRating > 0)
+            if (DurabilityRating > 0)
             {
-                _durabilityRating--;
+                DurabilityRating--;
                 return characterToWrite;
             }
 
