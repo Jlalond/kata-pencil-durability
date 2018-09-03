@@ -28,8 +28,7 @@ namespace PencilDurabilityKata.Tests
         {
             var paper = new Paper();
             paper.Write(string.Empty);
-            Assert.Equal(string.Empty, paper.ReadAll()
-            );
+            Assert.Equal(string.Empty, paper.ReadAll());
         }
     }
 }
