@@ -8,6 +8,8 @@ namespace PencilDurabilityKata.WritingSurfaces
     {
         private readonly StringBuilder _characters;
         private int _lastErasedIndex;
+        private const char CollisonCharacter = '@';
+        private const char WhiteSpace = ' ';
 
         public Paper()
         {
@@ -41,7 +43,7 @@ namespace PencilDurabilityKata.WritingSurfaces
             for (var i = 0; i < phraseToBeErased.Length; i++)
             {
                 _characters[startIndex - i] = eraser.Erase(_characters[startIndex - i]);
-                if (_characters[startIndex - i] == ' ')
+                if (_characters[startIndex - i] == WhiteSpace)
                 {
                     _lastErasedIndex = startIndex - i;
                 }
@@ -57,7 +59,19 @@ namespace PencilDurabilityKata.WritingSurfaces
 
             for (var i = 0; i < wordToWrite.Length; i++)
             {
-                _characters[_lastErasedIndex + i] = wordToWrite[i];
+                HandleEditingCharacterIfNotWhiteSpace(i, wordToWrite[i]);
+            }
+        }
+
+        private void HandleEditingCharacterIfNotWhiteSpace(int index, char characterToWrite)
+        {
+            if (_characters[_lastErasedIndex + index] != WhiteSpace)
+            {
+                _characters[_lastErasedIndex + index] = CollisonCharacter;
+            }
+            else
+            {
+                _characters[_lastErasedIndex + index] = characterToWrite;
             }
         }
     }

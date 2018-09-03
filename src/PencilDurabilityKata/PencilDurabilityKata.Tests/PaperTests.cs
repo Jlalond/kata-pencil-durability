@@ -92,5 +92,16 @@ namespace PencilDurabilityKata.Tests
             Assert.Equal("Jacob as cool", paper.ReadAll());
         }
 
+        [Fact]
+        public void EditOverWordsIsSuccesful()
+        {
+            var eraser = new Eraser(100);
+            var pencil = new Pencil(100);
+            var paper = new Paper();
+            paper.Write(pencil, "Jacob is cool");
+            paper.Erase(eraser, "is");
+            paper.Edit("bocaj");
+            Assert.Equal("Jacob boc@@ol", paper.ReadAll());
+        }
     }
 }
