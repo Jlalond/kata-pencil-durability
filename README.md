@@ -10,6 +10,8 @@ C# Specifically .Net core 2.1
 ** Testing Framework ** 
 Xunit
 
+** Build Tools ** 
+DotNet Core Command Line Interface [Tools](https://docs.microsoft.com/en-us/dotnet/core/tools/?tabs=netcore2x)
 
 ## Design Philisophy
 I want to highlight a few things, I didn't do null checks, and before I'm thrown under a bus, I'd like to discuss why.
