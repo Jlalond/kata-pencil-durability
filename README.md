@@ -4,13 +4,13 @@ In order to run the tests associated with this solution use the follow command:
 
 This will build and run the tests.
 
-**Language** 
+**Language**:
 C# Specifically .Net core 2.1
 
-** Testing Framework ** 
+**Testing Framework**: 
 Xunit
 
-** Build Tools ** 
+**Build Tools**:
 DotNet Core Command Line Interface [Tools](https://docs.microsoft.com/en-us/dotnet/core/tools/?tabs=netcore2x)
 
 ## Design Philisophy
